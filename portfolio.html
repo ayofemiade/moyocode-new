@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Moyocode's portfolio of successful web development projects including LOCOBA Alumni, BGMS Foundation, SBO-Foundation, and Funmilola Adetoye portfolio. See our work in action.">
+    <meta name="keywords" content="web development portfolio, WordPress projects, custom websites, React applications, case studies, client work">
+    <meta name="author" content="Moyocode">
+    <meta property="og:title" content="Portfolio - Moyocode | Our Best Web Development Work">
+    <meta property="og:description" content="Discover our portfolio of successful web development projects across various industries and technologies.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moyocode.com/portfolio">
+    <title>Portfolio - Moyocode | Our Best Web Development Work</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Moyocode</a>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="portfolio.html" class="nav-link active">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1>Our <span class="highlight">Portfolio</span></h1>
+                <p class="page-hero-description">
+                    Explore our collection of successful web development projects that have helped 
+                    businesses and organizations achieve their digital goals and drive meaningful growth.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Filter -->
+    <section class="portfolio-filter-section">
+        <div class="container">
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="business">Business</button>
+                <button class="filter-btn" data-filter="nonprofit">Non-Profit</button>
+                <button class="filter-btn" data-filter="personal">Personal</button>
+                <button class="filter-btn" data-filter="community">Community</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="portfolio-grid-section">
+        <div class="container">
+            <div class="portfolio-grid">
+                <!-- LOCOBA Alumni Project -->
+                <div class="portfolio-item" data-category="community business">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M23 21V19C23 18.1645 22.7155 17.3541 22.2094 16.7007C21.7033 16.0473 20.9999 15.5902 20.2 15.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 3.13C16.8003 3.35031 17.5037 3.80771 18.0098 4.46111C18.5159 5.11452 18.8004 5.92493 18.8004 6.76C18.8004 7.59507 18.5159 8.40548 18.0098 9.05889C17.5037 9.71229 16.8003 10.1697 16 10.39" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h3>LOCOBA Alumni Network</h3>
+                                <p>Community Platform</p>
+                                <button class="btn btn-outline-light" onclick="openCaseStudy('locoba')">View Case Study</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="tag">WordPress</span>
+                            <span class="tag">Community</span>
+                            <span class="tag">Membership</span>
+                        </div>
+                        <h3>LOCOBA Alumni Network</h3>
+                        <p>A comprehensive platform connecting alumni and facilitating networking opportunities.</p>
+                    </div>
+                </div>
+
+                <!-- BGMS Foundation Project -->
+                <div class="portfolio-item" data-category="nonprofit">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.84 4.61C20.3292 4.099 19.7228 3.69364 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69364 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.9083 3.5783 8.50903 2.9987 7.05 2.9987C5.59096 2.9987 4.19169 3.5783 3.16 4.61C2.1283 5.6417 1.5487 7.04097 1.5487 8.5C1.5487 9.95903 2.1283 11.3583 3.16 12.39L12 21.23L20.84 12.39C21.351 11.8792 21.7563 11.2728 22.0329 10.6053C22.3095 9.93789 22.4518 9.22248 22.4518 8.5C22.4518 7.77752 22.3095 7.06211 22.0329 6.39467C21.7563 5.72723 21.351 5.1208 20.84 4.61V4.61Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h3>BGMS Foundation</h3>
+                                <p>Non-Profit Website</p>
+                                <button class="btn btn-outline-light" onclick="openCaseStudy('bgms')">View Case Study</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="tag">WordPress</span>
+                            <span class="tag">Non-Profit</span>
+                            <span class="tag">Donations</span>
+                        </div>
+                        <h3>BGMS Foundation</h3>
+                        <p>A compelling website showcasing programs and facilitating community engagement.</p>
+                    </div>
+                </div>
+
+                <!-- SBO Foundation Project -->
+                <div class="portfolio-item" data-category="nonprofit">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L13.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h3>SBO Foundation</h3>
+                                <p>Community Impact</p>
+                                <button class="btn btn-outline-light" onclick="openCaseStudy('sbo')">View Case Study</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="tag">Custom HTML</span>
+                            <span class="tag">Non-Profit</span>
+                            <span class="tag">SEO</span>
+                        </div>
+                        <h3>SBO Foundation</h3>
+                        <p>A modern website highlighting community impact and volunteer opportunities.</p>
+                    </div>
+                </div>
+
+                <!-- Funmilola Adetoye Portfolio -->
+                <div class="portfolio-item" data-category="personal">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="9" cy="9" r="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M21 15L16 10L5 21" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h3>Funmilola Adetoye</h3>
+                                <p>Creative Portfolio</p>
+                                <button class="btn btn-outline-light" onclick="openCaseStudy('funmilola')">View Case Study</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="portfolio-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Portfolio</span>
+                            <span class="tag">Animation</span>
+                        </div>
+                        <h3>Funmilola Adetoye Portfolio</h3>
+                        <p>A stunning creative portfolio showcasing artistic work with advanced animations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Modals -->
+    <div id="case-study-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCaseStudy()">&times;</span>
+            <div id="case-study-content">
+                <!-- Content will be dynamically loaded -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Section -->
+    <section class="portfolio-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="technologies-used">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technologies We Use</h2>
+                <p class="section-subtitle">Modern tools and frameworks for exceptional results</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3>Frontend</h3>
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <div class="tech-icon">⚛️</div>
+                            <span>React</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">🌐</div>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">🎨</div>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">⚡</div>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>CMS & Frameworks</h3>
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <div class="tech-icon">📝</div>
+                            <span>WordPress</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">🚀</div>
+                            <span>Next.js</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">💨</div>
+                            <span>Tailwind CSS</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">📱</div>
+                            <span>Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>Tools & Services</h3>
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <div class="tech-icon">🔍</div>
+                            <span>SEO Tools</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">📊</div>
+                            <span>Analytics</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">🎭</div>
+                            <span>GSAP</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">🎯</div>
+                            <span>Figma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Project?</h2>
+                <p>
+                    Let's create something amazing together. Get in touch to discuss your project 
+                    and see how we can help bring your vision to life.
+                </p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Start Your Project</a>
+                    <a href="services.html" class="btn btn-outline">View Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Moyocode</h3>
+                    <p>Creating digital experiences that inspire and convert.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="services.html">Web Development</a></li>
+                            <li><a href="services.html">WordPress</a></li>
+                            <li><a href="services.html">SEO Optimization</a></li>
+                            <li><a href="services.html">Responsive Design</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="#">LinkedIn</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Moyocode. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Portfolio filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all') {
+                            item.style.display = 'block';
+                        } else {
+                            const categories = item.getAttribute('data-category');
+                            if (categories.includes(filter)) {
+                                item.style.display = 'block';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        });
+
+        // Case study modal functionality
+        function openCaseStudy(project) {
+            const modal = document.getElementById('case-study-modal');
+            const content = document.getElementById('case-study-content');
+            
+            let caseStudyHTML = '';
+            
+            switch(project) {
+                case 'locoba':
+                    caseStudyHTML = `
+                        <div class="case-study-header">
+                            <h2>LOCOBA Alumni Network</h2>
+                            <div class="case-study-tags">
+                                <span class="tag">WordPress</span>
+                                <span class="tag">Community Platform</span>
+                                <span class="tag">Membership System</span>
+                            </div>
+                        </div>
+                        <div class="case-study-body">
+                            <div class="case-section">
+                                <h3>The Challenge</h3>
+                                <p>LOCOBA needed a comprehensive platform to connect their growing alumni network, facilitate meaningful networking opportunities, and manage events effectively. The existing communication methods were fragmented and inefficient.</p>
+                            </div>
+                            <div class="case-section">
+                                <h3>Our Solution</h3>
+                                <p>We developed a custom WordPress platform with advanced membership management, event booking system, and social networking features. The solution included:</p>
+                                <ul>
+                                    <li>Custom member profiles and directory</li>
+                                    <li>Event management and booking system</li>
+                                    <li>Private messaging and networking tools</li>
+                                    <li>News and updates section</li>
+                                    <li>Mobile-responsive design</li>
+                                </ul>
+                            </div>
+                            <div class="case-section">
+                                <h3>Results Achieved</h3>
+                                <div class="results-grid">
+                                    <div class="result-item">
+                                        <div class="result-number">500+</div>
+                                        <div class="result-label">Active Members</div>
+                                    </div>
+                                    <div class="result-item">
+                                        <div class="result-number">300%</div>
+                                        <div class="result-label">Event Attendance Increase</div>
+                                    </div>
+                                    <div class="result-item">
+                                        <div class="result-number">85%</div>
+                                        <div class="result-label">User Engagement Rate</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'bgms':
+                    caseStudyHTML = `
+                        <div class="case-study-header">
+                            <h2>BGMS Foundation</h2>
+                            <div class="case-study-tags">
+                                <span class="tag">WordPress</span>
+                                <span class="tag">Non-Profit</span>
+                                <span class="tag">Donation System</span>
+                            </div>
+                        </div>
+                        <div class="case-study-body">
+                            <div class="case-section">
+                                <h3>The Challenge</h3>
+                                <p>BGMS Foundation needed a compelling website to showcase their programs, facilitate online donations, and increase community engagement. Their previous site was outdated and not optimized for conversions.</p>
+                            </div>
+                            <div class="case-section">
+                                <h3>Our Solution</h3>
+                                <p>We created a modern, SEO-optimized website with integrated donation system and program showcases:</p>
+                                <ul>
+                                    <li>Compelling storytelling and program highlights</li>
+                                    <li>Secure online donation integration</li>
+                                    <li>Volunteer registration system</li>
+                                    <li>Impact metrics and success stories</li>
+                                    <li>SEO optimization for better visibility</li>
+                                </ul>
+                            </div>
+                            <div class="case-section">
+                                <h3>Results Achieved</h3>
+                                <div class="results-grid">
+                                    <div class="result-item">
+                                        <div class="result-number">200%</div>
+                                        <div class="result-label">Donation Increase</div>
+                                    </div>
+                                    <div class="result-item">
+                                        <div class="result-number">150%</div>
+                                        <div class="result-label">Volunteer Applications</div>
+                                    </div>
+                                    <div class="result-item">
+                                        <div class="result-number">400%</div>
+                                        <div class="result-label">Website Traffic Growth</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'sbo':
+                    caseStudyHTML = `
+                        <div class="case-study-header">
+                            <h2>SBO Foundation</h2>
+                            <div class="case-study-tags">
+                                <span class="tag">Custom HTML</span>
+                                <span class="tag">Non-Profit</span>
+                                <span class="tag">SEO Optimized</span>
+                            </div>
+                        </div>
+                        <div class="case-study-body">
+                            <div class="case-section">
+                                <h3>The Challenge</h3>
+                                <p>SBO Foundation required a modern website to highlight their community impact and attract more volunteers. They needed a fast, SEO-friendly solution that would rank well in search results.</p>
+                            </div>
+                            <div class="case-section">
+                                <h3>Our Solution</h3>
+                                <p>We built a custom HTML website optimized for performance and search visibility:</p>
+                                <ul>
+                                    <li>Lightning-fast loading speeds</li>
+                                    <li>Comprehensive SEO optimization</li>
+                                    <li>Impact stories and testimonials</li>
+                                    <li>Volunteer opportunity listings</li>
+                                    <li>Mobile-first responsive design</li>
+                                </ul>
+                            </div>
+                            <div class="case-section">
+                                <h3>Results Achieved</h3>
+                                <div class="results-grid">
+                                    <div class="result-item">
+                                        <div class="result-number">250%</div>
+                                        <div class="result-label">Organic Traffic Increase</div>
+                                    </div>
+                                    <div class="result-item">
+                                        <div class="result-number">180%</div>
+                                        <div class="result-label">Volunteer Sign-ups</div>
+                                    </div>
+                                    <div class="result-item">
+                                        <div class="result-number">95</div>
+                                        <div class="result-label">Page Speed Score</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'funmilola':
+                    caseStudyHTML = `
+                        <div class="case-study-header">
+                            <h2>Funmilola Adetoye Portfolio</h2>
+                            <div class="case-study-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Creative Portfolio</span>
+                                <span class="tag">Advanced Animations</span>
+                            </div>
+                        </div>
+                        <div class="case-study-body">
+                            <div class="case-section">
+                                <h3>The Challenge</h3>
+                                <p>Funmilola needed a stunning portfolio website that would showcase her creative work and attract high-quality clients. The site needed to reflect her artistic vision while being highly functional.</p>
+                            </div>
+                            <div class="case-section">
+                                <h3>Our Solution</h3>
+                                <p>We created a custom React-based portfolio with advanced animations and interactive elements:</p>
+                                <ul>
+                                    <li>Custom React components and animations</li>
+                                    <li>Interactive project galleries</li>
+                                    <li>Smooth page transitions</li>
+                                    <li>Contact form integration</li>
+                                    <li>SEO optimization for creative professionals</li>
+                                </ul>
+                            </div>
+                            <div class="case-section">
+                                <h3>Results Achieved</h3>
+                                <div class="results-grid">
+                                    <div class="result-item">
+                                        <div class="result-number">400%</div>
+                                        <div class="result-label">Client Inquiries Increase</div>
+                                    </div>
+                                    <div class="result-item">
+                                        <div class="result-number">5</div>
+                                        <div class="result-label">Design Awards</div>
+                                    </div>
+                                    <div class="result-item">
+                                        <div class="result-number">92%</div>
+                                        <div class="result-label">User Engagement Rate</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+            }
+            
+            content.innerHTML = caseStudyHTML;
+            modal.style.display = 'block';
+        }
+
+        function closeCaseStudy() {
+            const modal = document.getElementById('case-study-modal');
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('case-study-modal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
