@@ -57,7 +57,7 @@
 .page-hero-content h1 {
     font-size: 4rem;
     font-weight: 800;
-    color: var(--white);
+    color: white;
     margin-bottom: 2rem;
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     letter-spacing: -0.02em;
@@ -74,7 +74,7 @@
 
 .page-hero-description {
     font-size: 1.4rem;
-    color: var(--white);
+    color: white;
     opacity: 0.95;
     max-width: 700px;
     margin: 0 auto;
@@ -1244,7 +1244,7 @@
 }
 
 .advantage-item p {
-    color: rgba(255, 255, 255, 0.8);
+    color: black;
     line-height: 1.7;
     font-size: 1.05rem;
     font-weight: 300;
@@ -1681,7 +1681,8 @@
 
 /* Enhanced Call to Action Section */
 .services-cta {
-    padding: 120px 0;
+    padding: 120px 0 150px 0;
+    margin-bottom: 50px;
     background: linear-gradient(135deg, var(--services-gradient-start) 0%, var(--services-gradient-end) 50%, var(--services-accent) 100%);
     color: white;
     text-align: center;
@@ -1855,7 +1856,8 @@
     .why-choose-us,
     .case-examples,
     .services-cta {
-        padding: 80px 0;
+        padding: 80px 0 100px 0;
+        margin-bottom: 30px;
     }
     
     .section-header {
@@ -2097,9 +2099,13 @@
     .additional-services,
     .our-process,
     .why-choose-us,
-    .case-examples,
-    .services-cta {
+    .case-examples {
         padding: 60px 0;
+    }
+    
+    .services-cta {
+        padding: 60px 0 80px 0;
+        margin-bottom: 20px;
     }
     
     .service-card,
