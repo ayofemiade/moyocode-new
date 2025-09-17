@@ -230,7 +230,7 @@
                     <div class="booking-section">
                         <h4>Schedule a Call</h4>
                         <p>Prefer to talk? Schedule a free 30-minute consultation call.</p>
-                        <button class="btn btn-outline" onclick="openBookingModal()">
+                        <button class="btn btn-outline" data-booking>
                             Schedule Free Consultation
                         </button>
                     </div>
@@ -306,26 +306,26 @@
     </section>
 
     <!-- Booking Modal -->
-    <div id="booking-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeBookingModal()">&times;</span>
-            <div class="booking-content">
+    <div id="booking-modal" class="booking-modal">
+        <div class="booking-modal-content">
+            <button class="booking-modal-close" type="button">&times;</button>
+            <div class="modal-header">
                 <h3>Schedule Your Free Consultation</h3>
                 <p>Choose a time that works best for you, and we'll discuss your project in detail.</p>
-                <div class="booking-placeholder">
-                    <div class="booking-info">
-                        <h4>📅 30-Minute Free Consultation</h4>
-                        <ul>
-                            <li>Discuss your project goals and requirements</li>
-                            <li>Get expert advice and recommendations</li>
-                            <li>Receive a custom project proposal</li>
-                            <li>No obligation - completely free</li>
-                        </ul>
-                        <p><strong>Note:</strong> This is a placeholder for calendar integration. In a live implementation, you would integrate with services like Calendly, Acuity Scheduling, or similar booking platforms.</p>
-                        <div class="booking-buttons">
-                            <a href="mailto:hello@moyocode.com?subject=Schedule Consultation" class="btn btn-primary">Email to Schedule</a>
-                            <button class="btn btn-outline" onclick="closeBookingModal()">Close</button>
-                        </div>
+            </div>
+            <div class="booking-form">
+                <div class="booking-info">
+                    <h4>📅 30-Minute Free Consultation</h4>
+                    <ul>
+                        <li>Discuss your project goals and requirements</li>
+                        <li>Get expert advice and recommendations</li>
+                        <li>Receive a custom project proposal</li>
+                        <li>No obligation - completely free</li>
+                    </ul>
+                    <p><strong>Note:</strong> This is a placeholder for calendar integration. In a live implementation, you would integrate with services like Calendly, Acuity Scheduling, or similar booking platforms.</p>
+                    <div class="booking-buttons">
+                        <a href="mailto:hello@moyocode.com?subject=Schedule Consultation" class="booking-submit">Email to Schedule</a>
+                        <button class="btn btn-outline" type="button">Close</button>
                     </div>
                 </div>
             </div>
@@ -425,22 +425,7 @@
             }
         }
 
-        // Booking modal functionality
-        function openBookingModal() {
-            document.getElementById('booking-modal').style.display = 'block';
-        }
-
-        function closeBookingModal() {
-            document.getElementById('booking-modal').style.display = 'none';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('booking-modal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
+        // Note: Booking modal functionality is handled in contact.js
     </script>
     <script src="js/script.js"></script>
     <script src="js/contact.js"></script>
