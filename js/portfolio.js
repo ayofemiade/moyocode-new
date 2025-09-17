@@ -246,125 +246,110 @@ function initializePortfolioModals() {
     });
 }
 
+// Global functions for HTML onclick handlers
+function openCaseStudy(projectId) {
+    if (portfolioData[projectId]) {
+        showCaseStudyModal(portfolioData[projectId]);
+    }
+}
+
+function closeCaseStudy() {
+    const modal = document.querySelector('.case-study-modal');
+    if (modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+}
+
 // Show case study modal
 function showCaseStudyModal(project) {
-    // Create modal if it doesn't exist
+    // Get existing modal or create new one
     let modal = document.querySelector('.case-study-modal');
     if (!modal) {
         modal = document.createElement('div');
         modal.className = 'case-study-modal';
-        modal.innerHTML = `
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="modal-close">&times;</button>
-                    <div class="modal-project-icon">🚀</div>
-                </div>
-                <div class="modal-body">
-                    <h2 class="modal-title"></h2>
-                    <p class="modal-subtitle"></p>
-                    
-                    <div class="modal-section">
-                        <h3>📋 Project Overview</h3>
-                        <p class="modal-description"></p>
-                        <div class="modal-meta">
-                            <span class="modal-client"></span>
-                            <span class="modal-date"></span>
-                        </div>
-                    </div>
-                    
-                    <div class="modal-section">
-                        <h3>🎯 Challenge</h3>
-                        <p class="modal-challenge"></p>
-                    </div>
-                    
-                    <div class="modal-section">
-                        <h3>💡 Solution</h3>
-                        <p class="modal-solution"></p>
-                    </div>
-                    
-                    <div class="modal-section">
-                        <h3>📈 Results</h3>
-                        <p class="modal-result"></p>
-                    </div>
-                    
-                    <div class="modal-section">
-                        <h3>⚡ Key Features</h3>
-                        <div class="modal-features"></div>
-                    </div>
-                    
-                    <div class="modal-section">
-                        <h3>🛠️ Technologies Used</h3>
-                        <div class="modal-tags"></div>
-                    </div>
-                    
-                    <div class="modal-actions">
-                        <a href="#" class="btn-primary">View Live Project</a>
-                        <a href="contact.html" class="btn-secondary">Start Similar Project</a>
-                    </div>
-                </div>
-            </div>
-        `;
         document.body.appendChild(modal);
-        
-        // Add close functionality
-        modal.querySelector('.modal-close').addEventListener('click', () => {
-            modal.classList.remove('show');
-        });
-        
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('show');
-            }
-        });
-        
-        // Close on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('show')) {
-                modal.classList.remove('show');
-            }
-        });
     }
     
-    // Update modal content
-    modal.querySelector('.modal-title').textContent = project.title;
-    modal.querySelector('.modal-subtitle').textContent = project.category;
-    modal.querySelector('.modal-description').textContent = project.description;
-    modal.querySelector('.modal-client').textContent = `Client: ${project.client}`;
-    modal.querySelector('.modal-date').textContent = `Year: ${project.date}`;
-    modal.querySelector('.modal-challenge').textContent = project.challenge;
-    modal.querySelector('.modal-solution').textContent = project.solution;
-    modal.querySelector('.modal-result').textContent = project.result;
-    
-    // Update features
-    const featuresContainer = modal.querySelector('.modal-features');
-    featuresContainer.innerHTML = project.features.map(feature => `
-        <div class="feature-item">
-            <div class="feature-title">${feature.title}</div>
-            <div class="feature-description">${feature.description}</div>
+    // Create or update modal content
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeCaseStudy()">&times;</button>
+                <div class="modal-project-icon">🚀</div>
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title">${project.title}</h2>
+                <p class="modal-subtitle">${project.category}</p>
+                
+                <div class="modal-section">
+                    <h3>📋 Project Overview</h3>
+                    <p class="modal-description">${project.description}</p>
+                    <div class="modal-meta">
+                        <span class="modal-client">Client: ${project.client}</span>
+                        <span class="modal-date">Year: ${project.date}</span>
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>🎯 Challenge</h3>
+                    <p class="modal-challenge">${project.challenge}</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>💡 Solution</h3>
+                    <p class="modal-solution">${project.solution}</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>📈 Results</h3>
+                    <p class="modal-result">${project.result}</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>⚡ Key Features</h3>
+                    <div class="modal-features">
+                        ${project.features.map(feature => `
+                            <div class="feature-item">
+                                <div class="feature-title">${feature.title}</div>
+                                <div class="feature-description">${feature.description}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>🛠️ Technologies Used</h3>
+                    <div class="modal-tags">
+                        ${project.tags.map(tag => `<span class="portfolio-tag">${tag}</span>`).join('')}
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <a href="#" class="btn-primary">View Live Project</a>
+                    <a href="contact.html" class="btn-secondary">Start Similar Project</a>
+                </div>
+            </div>
         </div>
-    `).join('');
+    `;
     
-    // Update tags
-    const tagsContainer = modal.querySelector('.modal-tags');
-    tagsContainer.innerHTML = project.tags.map(tag => `
-        <span class="portfolio-tag">${tag}</span>
-    `).join('');
+    // Add event listeners
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeCaseStudy();
+        }
+    });
+    
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            closeCaseStudy();
+        }
+    });
     
     // Show modal
     modal.classList.add('show');
     document.body.style.overflow = 'hidden';
-    
-    // Remove body scroll lock when modal closes
-    const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                if (!modal.classList.contains('show')) {
-                    document.body.style.overflow = '';
-                }
-            }
-        });
-    });
-    observer.observe(modal, { attributes: true });
 }
 
 // Statistics animation

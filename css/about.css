@@ -170,8 +170,9 @@
 .story-text h2::after {
     content: '';
     position: absolute;
-    bottom: -10px;
-    left: 0;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 60px;
     height: 4px;
     background: linear-gradient(135deg, var(--about-accent), #f4d03f);
@@ -497,9 +498,9 @@
 .skills-category h3::after {
     content: '';
     position: absolute;
-    bottom: -3px;
+    bottom: -6px;
     left: 0;
-    width: 40px;
+    width: 50px;
     height: 3px;
     background: linear-gradient(135deg, #f4d03f, var(--about-accent));
     border-radius: 2px;

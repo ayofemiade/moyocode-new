@@ -517,24 +517,73 @@
 
 .tech-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
     margin-top: 60px;
+}
+
+.tech-category {
+    text-align: center;
+}
+
+.tech-category h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.tech-category h3::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(135deg, var(--warm-champagne), var(--rich-gold));
+    border-radius: 2px;
+}
+
+.tech-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
 }
 
 .tech-item {
     text-align: center;
-    padding: 30px 20px;
+    padding: 25px 15px;
     background: var(--white);
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     border: 1px solid var(--light-gray);
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    transition: left 0.5s ease;
 }
 
 .tech-item:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    border-color: var(--warm-champagne);
+}
+
+.tech-item:hover::before {
+    left: 100%;
 }
 
 .tech-icon {
@@ -549,22 +598,26 @@
     font-size: 1.5rem;
     color: var(--white);
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
 
 .tech-item:hover .tech-icon {
     transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, var(--rich-gold), var(--warm-champagne));
 }
 
-.tech-name {
-    font-size: 0.9rem;
+.tech-item span {
+    font-size: 0.95rem;
     font-weight: 500;
     color: var(--primary-color);
-    margin-bottom: 5px;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
 }
 
-.tech-projects {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
+.tech-item:hover span {
+    color: var(--rich-gold);
 }
 
 /* Case Study Modal */
@@ -712,11 +765,108 @@
 
 .modal-actions {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     justify-content: center;
-    padding-top: 30px;
+    padding-top: 40px;
     border-top: 1px solid var(--light-gray);
     flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.modal-actions .btn-primary,
+.modal-actions .btn-secondary {
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    min-width: 180px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.modal-actions .btn-primary {
+    background: linear-gradient(135deg, var(--rich-gold) 0%, var(--warm-champagne) 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 8px 25px rgba(184, 134, 11, 0.25);
+}
+
+.modal-actions .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.modal-actions .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(184, 134, 11, 0.35);
+    background: linear-gradient(135deg, var(--warm-champagne) 0%, var(--rich-gold) 100%);
+}
+
+.modal-actions .btn-primary:hover::before {
+    left: 100%;
+}
+
+.modal-actions .btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--primary-color);
+    border: 2px solid var(--medium-bronze);
+    backdrop-filter: blur(10px);
+}
+
+.modal-actions .btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--medium-bronze);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.modal-actions .btn-secondary:hover {
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.3);
+    border-color: var(--rich-gold);
+}
+
+.modal-actions .btn-secondary:hover::before {
+    width: 100%;
+}
+
+.modal-actions .btn-primary:active,
+.modal-actions .btn-secondary:active {
+    transform: translateY(-1px);
+    transition: transform 0.1s;
+}
+
+/* Mobile responsiveness for modal buttons */
+@media (max-width: 768px) {
+    .modal-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .modal-actions .btn-primary,
+    .modal-actions .btn-secondary {
+        width: 100%;
+        max-width: 280px;
+        padding: 12px 25px;
+        font-size: 0.95rem;
+    }
 }
 
 /* Portfolio CTA */
@@ -776,8 +926,33 @@
     }
     
     .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+    
+    .tech-category h3 {
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+    }
+    
+    .tech-items {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 20px;
+        gap: 15px;
+    }
+    
+    .tech-item {
+        padding: 20px 12px;
+    }
+    
+    .tech-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+    }
+    
+    .tech-item span {
+        font-size: 0.9rem;
     }
 }
 
@@ -888,18 +1063,47 @@
     }
     
     .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .tech-category {
+        padding: 0 10px;
+    }
+    
+    .tech-category h3 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+    
+    .tech-category h3::after {
+        bottom: -2px;
+        width: 40px;
+        height: 2px;
+    }
+    
+    .tech-items {
         grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-        gap: 15px;
+        gap: 12px;
     }
     
     .tech-item {
-        padding: 20px 15px;
+        padding: 18px 10px;
+        border-radius: 12px;
     }
     
     .tech-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        border-radius: 12px;
+    }
+    
+    .tech-item span {
+        font-size: 0.85rem;
+        line-height: 1.2;
     }
     
     .modal-content {
