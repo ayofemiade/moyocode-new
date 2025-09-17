@@ -347,6 +347,7 @@ function initializeFAQ() {
     
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
+        const toggle = item.querySelector('.faq-toggle');
         
         question.addEventListener('click', function() {
             const isActive = item.classList.contains('active');
@@ -355,14 +356,18 @@ function initializeFAQ() {
             faqItems.forEach(otherItem => {
                 if (otherItem !== item) {
                     otherItem.classList.remove('active');
+                    const otherToggle = otherItem.querySelector('.faq-toggle');
+                    if (otherToggle) otherToggle.textContent = '+';
                 }
             });
             
             // Toggle current item
             if (isActive) {
                 item.classList.remove('active');
+                if (toggle) toggle.textContent = '+';
             } else {
                 item.classList.add('active');
+                if (toggle) toggle.textContent = '-';
             }
             
             // Track FAQ interaction

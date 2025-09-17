@@ -795,6 +795,7 @@
 }
 
 .faq-item.active .faq-answer {
+    display: block;
     padding: 0 35px 30px;
     max-height: 300px;
 }
@@ -805,6 +806,40 @@
     margin: 0;
     font-size: 1rem;
     font-family: var(--font-primary);
+}
+
+/* Contact Info Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.contact-info .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--rich-gold);
+    border-radius: 8px;
+    color: var(--off-white);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-info .social-link:hover {
+    background: var(--warm-champagne);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(218, 165, 32, 0.3);
+}
+
+.contact-info .social-link svg {
+    width: 18px;
+    height: 18px;
 }
 
 /* Enhanced Social Links Section */
@@ -853,7 +888,17 @@
     font-family: var(--font-primary);
 }
 
-.social-links {
+.contact-info .social-links {
+    text-align: center;
+    margin: 30px 0;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-section .social-links {
     display: flex;
     justify-content: center;
     gap: 25px;
@@ -861,6 +906,65 @@
     z-index: 2;
     flex-wrap: wrap;
     margin-top: 40px;
+}
+
+.contact-info .social-links h4 {
+    color: var(--off-white);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-family: var(--font-accent);
+}
+
+.booking-section {
+    text-align: center;
+    margin: 30px 0;
+    padding: 30px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.booking-section h4 {
+    color: var(--off-white);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-family: var(--font-accent);
+}
+
+.booking-section p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: var(--font-primary);
+}
+
+.booking-section .btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: var(--rich-gold);
+    color: var(--off-white);
+    border: 2px solid var(--rich-gold);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    font-family: var(--font-accent);
+}
+
+.booking-section .btn:hover {
+    background: var(--warm-champagne);
+    border-color: var(--warm-champagne);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(218, 165, 32, 0.3);
 }
 
 .social-link {
@@ -923,6 +1027,10 @@
 .social-link:nth-child(2) { animation-delay: 0.2s; }
 .social-link:nth-child(3) { animation-delay: 0.3s; }
 .social-link:nth-child(4) { animation-delay: 0.4s; }
+
+.booking-section h4 {
+    color: white;
+}
 
 /* Enhanced Booking Modal */
 .booking-modal {
@@ -1281,6 +1389,7 @@
     }
     
     .faq-item.active .faq-answer {
+        display: block;
         padding: 0 20px 25px;
     }
     
@@ -1298,6 +1407,49 @@
         width: 50px;
         height: 50px;
         font-size: 1.2rem;
+    }
+    
+    .social-icons {
+        gap: 12px;
+    }
+    
+    .contact-info .social-link {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .contact-info .social-link svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .contact-info .social-links {
+        margin: 25px 0;
+        padding: 20px;
+    }
+    
+    .contact-info .social-links h4 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+    
+    .booking-section {
+        margin: 25px 0;
+        padding: 25px 20px;
+    }
+    
+    .booking-section h4 {
+        font-size: 1.2rem;
+    }
+    
+    .booking-section p {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+    
+    .booking-section .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
     
     .social-header h3 {
@@ -1374,6 +1526,7 @@
     }
     
     .faq-item.active .faq-answer {
+        display: block;
         padding: 0 15px 20px;
     }
     
@@ -1385,6 +1538,49 @@
         width: 45px;
         height: 45px;
         font-size: 1.1rem;
+    }
+    
+    .social-icons {
+        gap: 10px;
+    }
+    
+    .contact-info .social-link {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .contact-info .social-link svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .contact-info .social-links {
+        margin: 20px 0;
+        padding: 18px 15px;
+    }
+    
+    .contact-info .social-links h4 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+    
+    .booking-section {
+        margin: 20px 0;
+        padding: 22px 15px;
+    }
+    
+    .booking-section h4 {
+        font-size: 1.1rem;
+    }
+    
+    .booking-section p {
+        font-size: 0.9rem;
+        margin-bottom: 18px;
+    }
+    
+    .booking-section .btn {
+        padding: 9px 18px;
+        font-size: 0.85rem;
     }
     
     .social-header h3 {

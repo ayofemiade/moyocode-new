@@ -1,12 +1,8 @@
 /* Portfolio Page Specific Styles */
 /* Maintains the same structure and branding as main site */
 
-/* CSS Custom Properties - Color System */
 :root {
-    /* Primary Brand Colors */
-    --primary-color: #1a237e;
-    --secondary-color: #3f51b5;
-    --accent-color: #d4af37;
+    /* Primary Palette */
     --rich-gold: #B8860B;
     --warm-champagne: #D4AF37;
     --medium-bronze: #CBAE85;
@@ -14,39 +10,38 @@
     --charcoal-navy: #0D1B2A;
     --deep-charcoal: #2C2C2C;
     
-    /* Supporting Colors */
-    --white: #ffffff;
+    /* Supporting Shades */
     --off-white: #FAFAFA;
-    --light-background: #f8f9fa;
     --warm-gray: #8A8A8A;
-    --light-gray: #e0e0e0;
-    --dark-gray: #424242;
     --olive-green: #556B2F;
     --dark-olive: #3C4B1C;
     
-    /* Text Colors */
-    --text-primary: #2c2c2c;
-    --text-secondary: #666666;
-    --text-dark: #2C2C2C;
+    /* Typography */
+    --font-primary: 'Inter', sans-serif;
+    --font-accent: 'Playfair Display', serif;
     
-    /* Status Colors */
-    --success-color: #4caf50;
-    --warning-color: #ff9800;
-    --error-color: #f44336;
-    --info-color: #2196f3;
+    /* Spacing */
+    --section-padding: 80px 0;
+    --container-padding: 0 20px;
+    --max-width: 1200px;
     
-    /* Gradient Colors */
-    --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    --gradient-accent: linear-gradient(135deg, var(--accent-color), var(--rich-gold));
-    --gradient-warm: linear-gradient(135deg, var(--warm-champagne), var(--rich-gold));
-    --gradient-overlay: linear-gradient(135deg, rgba(26, 35, 126, 0.9), rgba(212, 175, 55, 0.9));
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     
-    /* Shadow Colors */
+    /* Additional Portfolio-specific variables */
+    --white: #ffffff;
+    --light-background: #f8f9fa;
+    --light-gray: #e0e0e0;
+    --dark-gray: #424242;
+    --text-primary: var(--deep-charcoal);
+    --text-secondary: var(--warm-gray);
     --shadow-light: rgba(0, 0, 0, 0.08);
     --shadow-medium: rgba(0, 0, 0, 0.12);
     --shadow-heavy: rgba(0, 0, 0, 0.15);
     --shadow-accent: rgba(212, 175, 55, 0.3);
-    --shadow-primary: rgba(26, 35, 126, 0.2);
+    --gradient-warm: linear-gradient(135deg, var(--warm-champagne), var(--rich-gold));
+    --gradient-overlay: linear-gradient(135deg, rgba(13, 27, 42, 0.9), rgba(212, 175, 55, 0.9));
     
     /* Overlay Colors */
     --overlay-dark: rgba(0, 0, 0, 0.9);
@@ -71,7 +66,7 @@
 
 /* Portfolio Hero Section */
 .portfolio-hero {
-    background: linear-gradient(135deg, var(--charcoal-navy) 0%, var(--deep-charcoal) 50%, var(--primary-color) 100%);
+    background: linear-gradient(135deg, var(--charcoal-navy) 0%, var(--deep-charcoal) 50%, var(--rich-gold) 100%);
     padding: 100px 0 60px;
     text-align: center;
     color: var(--white);
@@ -129,7 +124,7 @@
 }
 
 .portfolio-hero .page-hero-content .highlight {
-    background: linear-gradient(135deg, var(--accent-color), var(--rich-gold));
+    background: linear-gradient(135deg, var(--warm-champagne), var(--rich-gold));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -168,7 +163,7 @@
     font-weight: 800;
     display: block;
     margin-bottom: 5px;
-    color: var(--accent-color);
+    color: var(--warm-champagne);
     text-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
     letter-spacing: -0.01em;
 }
@@ -224,8 +219,8 @@
 
 .filter-btn:hover,
 .filter-btn.active {
-    background: var(--accent-color);
-    border-color: var(--accent-color);
+    background: var(--warm-champagne);
+    border-color: var(--warm-champagne);
     color: var(--white);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
@@ -251,7 +246,7 @@
 
 .view-btn.active {
     background: var(--white);
-    color: var(--primary-color);
+    color: var(--charcoal-navy);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -304,7 +299,7 @@
 
 .portfolio-image {
     height: 250px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: linear-gradient(135deg, var(--charcoal-navy), var(--warm-champagne));
     position: relative;
     overflow: hidden;
     display: flex;
@@ -424,7 +419,7 @@
 }
 
 .portfolio-category {
-    color: var(--accent-color);
+    color: var(--warm-champagne);
     font-size: 0.9rem;
     font-weight: 500;
     margin-bottom: 15px;
@@ -545,7 +540,7 @@
 .tech-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    background: linear-gradient(135deg, var(--warm-champagne), var(--charcoal-navy));
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -614,7 +609,7 @@
 .modal-header {
     position: relative;
     height: 300px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: linear-gradient(135deg, var(--charcoal-navy), var(--warm-champagne));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -679,7 +674,7 @@
     content: '';
     width: 4px;
     height: 20px;
-    background: var(--accent-color);
+    background: var(--warm-champagne);
     border-radius: 2px;
 }
 
@@ -700,7 +695,7 @@
     background: var(--light-background);
     padding: 20px;
     border-radius: 10px;
-    border-left: 4px solid var(--accent-color);
+    border-left: 4px solid var(--warm-champagne);
 }
 
 .feature-title {
@@ -727,7 +722,7 @@
 /* Portfolio CTA */
 .portfolio-cta {
     padding: 100px 0;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background: linear-gradient(135deg, var(--charcoal-navy) 0%, var(--deep-charcoal) 100%);
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -1015,7 +1010,7 @@
 .filter-btn:focus,
 .view-btn:focus,
 .tech-item:focus {
-    outline: 3px solid var(--accent-color);
+    outline: 3px solid var(--warm-champagne);
     outline-offset: 2px;
 }
 
@@ -1024,7 +1019,7 @@
     .portfolio-item,
     .tech-item,
     .featured-item {
-        border: 2px solid var(--primary-color);
+        border: 2px solid var(--charcoal-navy);
     }
     
     .filter-btn,
@@ -1169,7 +1164,7 @@
     
     .portfolio-item {
         box-shadow: none;
-        border: 1px solid var(--primary-color);
+        border: 1px solid var(--charcoal-navy);
         break-inside: avoid;
         margin-bottom: 20px;
     }
