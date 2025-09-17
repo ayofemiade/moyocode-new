@@ -169,13 +169,13 @@ function initializeSkillBars() {
 
 // Testimonial carousel (for Home page)
 function initializeTestimonialCarousel() {
-    const carousel = document.querySelector('.testimonial-carousel');
+    const carousel = document.querySelector('.testimonials-carousel');
     if (!carousel) return;
     
-    const testimonials = carousel.querySelectorAll('.testimonial-card');
+    const testimonials = carousel.querySelectorAll('.testimonial');
     const prevBtn = carousel.querySelector('.carousel-prev');
     const nextBtn = carousel.querySelector('.carousel-next');
-    const indicators = carousel.querySelectorAll('.carousel-indicator');
+    const indicators = document.querySelectorAll('.testimonial-dots .dot');
     
     let currentIndex = 0;
     const totalTestimonials = testimonials.length;
