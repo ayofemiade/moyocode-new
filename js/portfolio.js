@@ -377,8 +377,18 @@ function initializeStatsAnimation() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const statNumber = entry.target;
-                const target = parseInt(statNumber.textContent.replace(/[^0-9]/g, ''));
-                const suffix = statNumber.textContent.replace(/[0-9]/g, '');
+                const originalText = statNumber.textContent;
+                
+                // Special handling for "24/7" format
+                if (originalText.includes('24/7') || originalText.includes('24<span') || originalText.includes('24 <span')) {
+                    // Don't animate 24/7, just ensure it displays correctly
+                    statNumber.innerHTML = '24<span class="stat-separator">/</span>7';
+                    statsObserver.unobserve(statNumber);
+                    return;
+                }
+                
+                const target = parseInt(originalText.replace(/[^0-9]/g, ''));
+                const suffix = originalText.replace(/[0-9]/g, '');
                 
                 if (isNaN(target)) return;
                 

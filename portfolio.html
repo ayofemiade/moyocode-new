@@ -51,33 +51,53 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="page-hero">
+    <section class="portfolio-hero">
         <div class="container">
             <div class="page-hero-content">
                 <h1>Our <span class="highlight">Portfolio</span></h1>
                 <p class="page-hero-description">
-                    Explore our collection of successful web development projects that have helped 
-                    businesses and organizations achieve their digital goals and drive meaningful growth.
+                    Showcasing our finest work and creative solutions that drive results. 
+                    Discover how we transform ideas into exceptional digital experiences.
                 </p>
+            </div>
+            <div class="portfolio-stats">
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Client Satisfaction</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24<span class="stat-separator">/</span>7</span>
+                    <span class="stat-label">Support Available</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Filter -->
-    <section class="portfolio-filter-section">
+    <section class="portfolio-filter">
         <div class="container">
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="business">Business</button>
-                <button class="filter-btn" data-filter="nonprofit">Non-Profit</button>
-                <button class="filter-btn" data-filter="personal">Personal</button>
-                <button class="filter-btn" data-filter="community">Community</button>
+            <div class="filter-container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="business">Business</button>
+                    <button class="filter-btn" data-filter="nonprofit">Non-Profit</button>
+                    <button class="filter-btn" data-filter="personal">Personal</button>
+                    <button class="filter-btn" data-filter="community">Community</button>
+                </div>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">⊞</button>
+                    <button class="view-btn" data-view="list">☰</button>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Grid -->
-    <section class="portfolio-grid-section">
+    <section class="portfolio-section">
         <div class="container">
             <div class="portfolio-grid">
                 <!-- LOCOBA Alumni Project -->
@@ -92,21 +112,30 @@
                             </svg>
                         </div>
                         <div class="portfolio-overlay">
-                            <div class="portfolio-overlay-content">
-                                <h3>LOCOBA Alumni Network</h3>
-                                <p>Community Platform</p>
-                                <button class="btn btn-outline-light" onclick="openCaseStudy('locoba')">View Case Study</button>
+                            <div class="overlay-content">
+                                <div class="overlay-title">LOCOBA Alumni Network</div>
+                                <div class="overlay-category">Community Platform</div>
+                                <div class="overlay-actions">
+                                    <a href="#" class="overlay-btn" onclick="openCaseStudy('locoba')">View Case Study</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="portfolio-info">
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">LOCOBA Alumni Network</h3>
+                        <div class="portfolio-category">Community Platform</div>
+                        <p class="portfolio-description">A comprehensive platform connecting alumni with advanced networking and event management features.</p>
                         <div class="portfolio-tags">
-                            <span class="tag">WordPress</span>
-                            <span class="tag">Community</span>
-                            <span class="tag">Membership</span>
+                            <span class="portfolio-tag">WordPress</span>
+                            <span class="portfolio-tag">Community</span>
+                            <span class="portfolio-tag">Membership</span>
                         </div>
-                        <h3>LOCOBA Alumni Network</h3>
-                        <p>A comprehensive platform connecting alumni and facilitating networking opportunities.</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-date">
+                                <span>📅 2024</span>
+                            </div>
+                            <div class="portfolio-client">LOCOBA</div>
+                        </div>
                     </div>
                 </div>
 
@@ -119,21 +148,30 @@
                             </svg>
                         </div>
                         <div class="portfolio-overlay">
-                            <div class="portfolio-overlay-content">
-                                <h3>BGMS Foundation</h3>
-                                <p>Non-Profit Website</p>
-                                <button class="btn btn-outline-light" onclick="openCaseStudy('bgms')">View Case Study</button>
+                            <div class="overlay-content">
+                                <div class="overlay-title">BGMS Foundation</div>
+                                <div class="overlay-category">Non-Profit Website</div>
+                                <div class="overlay-actions">
+                                    <a href="#" class="overlay-btn" onclick="openCaseStudy('bgms')">View Case Study</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="portfolio-info">
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">BGMS Foundation</h3>
+                        <div class="portfolio-category">Non-Profit Website</div>
+                        <p class="portfolio-description">Modern website with integrated donation system and compelling program showcases.</p>
                         <div class="portfolio-tags">
-                            <span class="tag">WordPress</span>
-                            <span class="tag">Non-Profit</span>
-                            <span class="tag">Donations</span>
+                            <span class="portfolio-tag">WordPress</span>
+                            <span class="portfolio-tag">Non-Profit</span>
+                            <span class="portfolio-tag">Donations</span>
                         </div>
-                        <h3>BGMS Foundation</h3>
-                        <p>A compelling website showcasing programs and facilitating community engagement.</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-date">
+                                <span>📅 2023</span>
+                            </div>
+                            <div class="portfolio-client">BGMS Foundation</div>
+                        </div>
                     </div>
                 </div>
 
@@ -146,21 +184,30 @@
                             </svg>
                         </div>
                         <div class="portfolio-overlay">
-                            <div class="portfolio-overlay-content">
-                                <h3>SBO Foundation</h3>
-                                <p>Community Impact</p>
-                                <button class="btn btn-outline-light" onclick="openCaseStudy('sbo')">View Case Study</button>
+                            <div class="overlay-content">
+                                <div class="overlay-title">SBO Foundation</div>
+                                <div class="overlay-category">Community Impact</div>
+                                <div class="overlay-actions">
+                                    <a href="#" class="overlay-btn" onclick="openCaseStudy('sbo')">View Case Study</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="portfolio-info">
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">SBO Foundation</h3>
+                        <div class="portfolio-category">Community Impact</div>
+                        <p class="portfolio-description">A modern website highlighting community impact and volunteer opportunities.</p>
                         <div class="portfolio-tags">
-                            <span class="tag">Custom HTML</span>
-                            <span class="tag">Non-Profit</span>
-                            <span class="tag">SEO</span>
+                            <span class="portfolio-tag">Custom HTML</span>
+                            <span class="portfolio-tag">Non-Profit</span>
+                            <span class="portfolio-tag">SEO</span>
                         </div>
-                        <h3>SBO Foundation</h3>
-                        <p>A modern website highlighting community impact and volunteer opportunities.</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-date">
+                                <span>📅 2024</span>
+                            </div>
+                            <div class="portfolio-client">SBO Foundation</div>
+                        </div>
                     </div>
                 </div>
 
@@ -175,21 +222,30 @@
                             </svg>
                         </div>
                         <div class="portfolio-overlay">
-                            <div class="portfolio-overlay-content">
-                                <h3>Funmilola Adetoye</h3>
-                                <p>Creative Portfolio</p>
-                                <button class="btn btn-outline-light" onclick="openCaseStudy('funmilola')">View Case Study</button>
+                            <div class="overlay-content">
+                                <div class="overlay-title">Funmilola Adetoye</div>
+                                <div class="overlay-category">Creative Portfolio</div>
+                                <div class="overlay-actions">
+                                    <a href="#" class="overlay-btn" onclick="openCaseStudy('funmilola')">View Case Study</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="portfolio-info">
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Funmilola Adetoye Portfolio</h3>
+                        <div class="portfolio-category">Creative Portfolio</div>
+                        <p class="portfolio-description">A stunning creative portfolio showcasing artistic work with advanced animations.</p>
                         <div class="portfolio-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Portfolio</span>
-                            <span class="tag">Animation</span>
+                            <span class="portfolio-tag">React</span>
+                            <span class="portfolio-tag">Portfolio</span>
+                            <span class="portfolio-tag">Animation</span>
                         </div>
-                        <h3>Funmilola Adetoye Portfolio</h3>
-                        <p>A stunning creative portfolio showcasing artistic work with advanced animations.</p>
+                        <div class="portfolio-meta">
+                            <div class="portfolio-date">
+                                <span>📅 2023</span>
+                            </div>
+                            <div class="portfolio-client">Funmilola Adetoye</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -206,29 +262,7 @@
         </div>
     </div>
 
-    <!-- Statistics Section -->
-    <section class="portfolio-stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Projects Completed</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Client Satisfaction</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">3+</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Support Available</div>
-                </div>
-            </div>
-        </div>
-    </section>
+   
 
     <!-- Technologies Section -->
     <section class="technologies-used">
@@ -306,18 +340,16 @@
     </section>
 
     <!-- Call to Action Section -->
-    <section class="cta-section">
+    <section class="portfolio-cta">
         <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Start Your Project?</h2>
-                <p>
-                    Let's create something amazing together. Get in touch to discuss your project 
-                    and see how we can help bring your vision to life.
-                </p>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-primary">Start Your Project</a>
-                    <a href="services.html" class="btn btn-outline">View Our Services</a>
-                </div>
+            <h2>Ready to Start Your Project?</h2>
+            <p>
+                Let's create something amazing together. Get in touch to discuss your project 
+                and see how we can help bring your vision to life.
+            </p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-white">Start Your Project</a>
+                <a href="services.html" class="btn btn-outline-white">View Our Services</a>
             </div>
         </div>
     </section>
