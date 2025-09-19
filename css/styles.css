@@ -520,7 +520,7 @@ p {
 }
 
 .portfolio-image {
-    height: 200px;
+    height: 350px;
     position: relative;
     overflow: hidden;
     border-radius: 20px 20px 0 0;
@@ -877,6 +877,12 @@ p {
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1018px) {
+    .portfolio-image{
+        height: 450px;
+    }
+}
+
 @media (max-width: 899px) {
     .hero-container {
         grid-template-columns: 1fr;
@@ -903,6 +909,9 @@ p {
     .hero-graphic {
         width: 300px;
         height: 300px;
+    }
+    .portfolio-image{
+        height: 400px;
     }
 }
 
@@ -994,6 +1003,7 @@ p {
         grid-template-columns: 1fr;
     }
     
+   
     .portfolio-grid {
         grid-template-columns: 1fr;
     }
@@ -1053,6 +1063,7 @@ p {
     .testimonial-content p {
         font-size: 1.1rem;
     }
+    
 }
 
 /* ===== ACCESSIBILITY ===== */
