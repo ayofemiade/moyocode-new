@@ -1214,6 +1214,18 @@
     gap: 20px;
 }
 
+/* Calendly Widget Styling */
+.calendly-inline-widget {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(13, 27, 42, 0.1);
+    background: var(--off-white);
+}
+
+.calendly-inline-widget iframe {
+    border-radius: 15px;
+}
+
 .booking-form .form-group {
     display: flex;
     flex-direction: column;
@@ -1851,4 +1863,138 @@
 
 .booking-modal-content::-webkit-scrollbar-thumb:hover {
     background: var(--primary-color);
+}
+
+/* Floating Elements Animation Styles */
+.page-hero-visual {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hero-graphic {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.element {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.7;
+}
+
+.element-1 {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #D4AF37, #F4E4BC);
+    top: 20%;
+    right: 15%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.element-2 {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2C3E50, #34495E);
+    top: 40%;
+    right: 35%;
+    animation: slideHorizontal 8s ease-in-out infinite;
+    border-radius: 20%;
+}
+
+.element-3 {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #F4E4BC, #D4AF37);
+    top: 60%;
+    right: 10%;
+    animation: float 7s ease-in-out infinite reverse;
+    border-radius: 30%;
+}
+
+.element-4 {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #34495E, #2C3E50);
+    top: 15%;
+    right: 45%;
+    animation: slideHorizontal 5s ease-in-out infinite reverse;
+}
+
+.element-5 {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #D4AF37, #F4E4BC);
+    top: 75%;
+    right: 30%;
+    animation: float 9s ease-in-out infinite;
+    border-radius: 25%;
+}
+
+.floating-dots {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #D4AF37;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.dot-1 {
+    top: 25%;
+    right: 25%;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+.dot-2 {
+    top: 55%;
+    right: 50%;
+    animation: twinkle 4s ease-in-out infinite 1s;
+}
+
+.dot-3 {
+    top: 80%;
+    right: 20%;
+    animation: twinkle 5s ease-in-out infinite 2s;
+}
+
+@keyframes slideHorizontal {
+    0%, 100% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(20px);
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.2);
+    }
 }
