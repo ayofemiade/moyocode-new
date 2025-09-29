@@ -15,21 +15,22 @@ document.addEventListener('DOMContentLoaded', function() {
 // Portfolio data (in a real application, this would come from an API)
 const portfolioData = {
     'locoba': {
-        title: 'LOCOBA - Local Business Platform',
+        title: 'LOCOBA - Loyola Old Boys Association',
         category: 'Web Development',
-        description: 'A comprehensive platform connecting local businesses with customers, featuring advanced search, booking systems, and integrated payment processing.',
-        client: 'LOCOBA Inc.',
+        description: 'A comprehensive alumni networking platform for Loyola College old boys, featuring event management, member directory, and community engagement tools.',
+        client: 'Loyola Old Boys Association',
         date: '2024',
-        tags: ['React', 'Node.js', 'MongoDB', 'Stripe API'],
+        url: 'https://locoba.org',
+        tags: ['React', 'Node.js', 'MongoDB', 'Event Management'],
         features: [
-            { title: 'Advanced Search', description: 'Location-based business discovery with filters' },
-            { title: 'Booking System', description: 'Real-time appointment scheduling' },
-            { title: 'Payment Integration', description: 'Secure payment processing with Stripe' },
-            { title: 'Review System', description: 'Customer feedback and rating system' }
+            { title: 'Alumni Directory', description: 'Searchable member database with professional profiles' },
+            { title: 'Event Management', description: 'Future and past event organization and registration' },
+            { title: 'Networking Hub', description: 'Professional networking and mentorship connections' },
+            { title: 'News & Updates', description: 'Alumni news, achievements, and association updates' }
         ],
-        challenge: 'Creating a scalable platform that could handle thousands of local businesses while maintaining fast search performance.',
-        solution: 'Implemented advanced caching strategies, optimized database queries, and used CDN for static assets.',
-        result: '300% increase in user engagement and 150% growth in business registrations within 6 months.'
+        challenge: 'Building a platform that could effectively connect alumni across different graduation years while maintaining privacy and professional networking standards.',
+        solution: 'Implemented robust privacy controls, professional networking features, and intuitive event management system.',
+        result: 'Increased alumni engagement by 250% and successful organization of multiple networking events with high attendance rates.'
     },
     'bgms': {
         title: 'BGMS Foundation - Non-Profit Website',
@@ -37,6 +38,7 @@ const portfolioData = {
         description: 'A modern, accessible website for a non-profit organization focused on community development and social impact.',
         client: 'BGMS Foundation',
         date: '2024',
+        url: 'https://badekumissionary.org',
         tags: ['WordPress', 'PHP', 'MySQL', 'Accessibility'],
         features: [
             { title: 'Donation System', description: 'Secure online donation processing' },
@@ -46,24 +48,25 @@ const portfolioData = {
         ],
         challenge: 'Building an accessible website that meets WCAG 2.1 AA standards while maintaining visual appeal.',
         solution: 'Implemented comprehensive accessibility features, semantic HTML, and thorough testing with screen readers.',
-        result: '200% increase in online donations and 400% growth in volunteer registrations.'
+        result: 'Increase in online donations and growth in volunteer registrations.'
     },
     'sbo': {
-        title: 'SBO-Foundation - Educational Platform',
+        title: 'SBO Foundation - Community Impact Website',
         category: 'Web Development',
-        description: 'An educational platform providing resources and tools for students and educators in underserved communities.',
+        description: 'A comprehensive foundation website dedicated to community giving and social impact, featuring donation systems, project showcases, and impact tracking.',
         client: 'SBO Foundation',
         date: '2023',
-        tags: ['Vue.js', 'Laravel', 'PostgreSQL', 'AWS'],
+        url: 'https://sbofoundation.ng',
+        tags: ['Vue.js', 'Laravel', 'PostgreSQL', 'Payment Gateway'],
         features: [
-            { title: 'Learning Management', description: 'Course creation and progress tracking' },
-            { title: 'Resource Library', description: 'Searchable educational materials' },
-            { title: 'Student Portal', description: 'Personalized learning dashboard' },
-            { title: 'Analytics Dashboard', description: 'Learning progress and engagement metrics' }
+            { title: 'Donation System', description: 'Secure online donation processing with multiple payment options' },
+            { title: 'Project Showcase', description: 'Visual presentation of community projects and initiatives' },
+            { title: 'Impact Tracking', description: 'Real-time tracking and reporting of foundation impact' },
+            { title: 'Volunteer Portal', description: 'Community volunteer registration and engagement platform' }
         ],
-        challenge: 'Creating an intuitive learning platform that works well on low-bandwidth connections.',
-        solution: 'Optimized for performance with progressive loading, offline capabilities, and mobile-first design.',
-        result: '500+ students enrolled with 85% course completion rate and positive feedback from educators.'
+        challenge: 'Creating a trustworthy platform that would inspire confidence in donors and effectively showcase the foundation\'s community impact.',
+        solution: 'Implemented transparent reporting systems, secure payment processing, and compelling visual storytelling of community projects.',
+        result: 'Significant increase in online donations and expanded community reach, with the founder testifying to measurable growth in contributions.'
     },
     'funmilola': {
         title: 'Funmilola Adetoye - Personal Brand',
@@ -71,6 +74,7 @@ const portfolioData = {
         description: 'Complete brand identity and website design for a professional consultant, including logo design, brand guidelines, and responsive website.',
         client: 'Funmilola Adetoye',
         date: '2023',
+        url: 'https://funmilolaadetoye.com',
         tags: ['Branding', 'UI/UX', 'WordPress', 'SEO'],
         features: [
             { title: 'Brand Identity', description: 'Logo design and brand guidelines' },
@@ -80,7 +84,7 @@ const portfolioData = {
         ],
         challenge: 'Creating a distinctive brand identity that reflects professionalism while standing out in a competitive market.',
         solution: 'Developed a unique visual identity with consistent messaging across all touchpoints.',
-        result: '300% increase in website traffic and 250% growth in client inquiries within 3 months.'
+        result: 'Increase in website traffic and growth in client inquiries within 3 months.'
     }
 };
 
@@ -261,6 +265,25 @@ function closeCaseStudy() {
     }
 }
 
+// Get project image based on project data
+function getProjectImage(project) {
+    const imageMap = {
+        'locoba': 'images/locoba-alumni-website-homepage.png',
+        'bgms': 'images/badeku-missionary-website-homepage.png',
+        'sbo': 'images/sbo-foundation-website-homepage.png',
+        'funmilola': 'images/portfolio-website-homepage.png'
+    };
+    
+    // If project is an object, get the key from portfolioData
+    if (typeof project === 'object') {
+        const projectKey = Object.keys(portfolioData).find(key => portfolioData[key] === project);
+        return imageMap[projectKey] || 'images/locoba-alumni-website-homepage.png';
+    }
+    
+    // If project is a string key
+    return imageMap[project] || 'images/locoba-alumni-website-homepage.png';
+}
+
 // Show case study modal
 function showCaseStudyModal(project) {
     // Get existing modal or create new one
@@ -274,9 +297,8 @@ function showCaseStudyModal(project) {
     // Create or update modal content
     modal.innerHTML = `
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header" style="background-image: url('${getProjectImage(project)}');">
                 <button class="modal-close" onclick="closeCaseStudy()">&times;</button>
-                <div class="modal-project-icon">🚀</div>
             </div>
             <div class="modal-body">
                 <h2 class="modal-title">${project.title}</h2>
@@ -326,7 +348,7 @@ function showCaseStudyModal(project) {
                 </div>
                 
                 <div class="modal-actions">
-                    <a href="#" class="btn-primary">View Live Project</a>
+                    <a href="${project.url}" target="_blank" class="btn-primary">View Live Project</a>
                     <a href="contact.html" class="btn-secondary">Start Similar Project</a>
                 </div>
             </div>
