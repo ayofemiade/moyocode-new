@@ -66,7 +66,7 @@
 
 /* Portfolio Hero Section */
 .portfolio-hero {
-    background: linear-gradient(135deg, #fafafa 0%, #f8f9fa 50%, #ffffff 100%);
+    background: linear-gradient(135deg, var(--off-white) 0%, var(--light-beige) 100%);
     padding: 140px 0 100px;
     text-align: center;
     position: relative;

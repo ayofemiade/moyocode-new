@@ -258,7 +258,7 @@ p {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #fafafa 0%, #f8f9fa 50%, #ffffff 100%);
+    background: linear-gradient(135deg, var(--off-white) 0%, var(--light-beige) 100%);
     position: relative;
     overflow: hidden;
 }
