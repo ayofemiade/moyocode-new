@@ -16,7 +16,7 @@
 /* Enhanced Hero Section */
 .page-hero,
 .about-hero {
-    background: linear-gradient(135deg, var(--about-gradient-start) 0%, var(--about-gradient-end) 100%);
+    background: linear-gradient(135deg, #fafafa 0%, #f8f9fa 50%, #ffffff 100%);
     padding: 140px 0 100px;
     text-align: center;
     position: relative;
@@ -35,25 +35,26 @@
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.8" fill="%23ffffff" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
-    animation: float 20s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(1deg); }
+        radial-gradient(circle at 30% 70%, rgba(184, 134, 11, 0.04) 0%, transparent 60%),
+        radial-gradient(circle at 70% 30%, rgba(212, 175, 55, 0.03) 0%, transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(203, 174, 133, 0.02) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .page-hero .container,
 .about-hero .container {
     position: relative;
     z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
 }
 
 .page-hero-content,
 .about-hero-content {
+    flex: 1;
+    text-align: left;
     animation: fadeInUp 1s ease-out;
 }
 
@@ -62,16 +63,15 @@
     font-family: var(--font-heading);
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
-    color: white;
+    color: var(--text-dark);
     margin-bottom: 2rem;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .page-hero h1 .highlight,
 .about-hero h1 .highlight {
-    background: linear-gradient(135deg, var(--about-accent), #f4d03f);
+    background: linear-gradient(135deg, var(--rich-gold), var(--warm-champagne));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -87,7 +87,7 @@
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(135deg, var(--about-accent), #f4d03f);
+    background: linear-gradient(135deg, var(--rich-gold), var(--warm-champagne));
     border-radius: 2px;
     animation: expandWidth 1.5s ease-out 0.5s both;
 }
@@ -96,14 +96,111 @@
 .page-hero p,
 .about-hero p {
     font-size: 1.3rem;
-    color: var(--about-text-light);
-    max-width: 700px;
-    margin: 0 auto;
+    color: var(--text-medium);
+    max-width: 600px;
     line-height: 1.7;
     font-weight: 400;
     opacity: 0;
     animation: fadeInUp 1s ease-out 0.3s both;
 }
+
+/* Hero Visual Elements */
+.page-hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    position: relative;
+}
+
+.about-geometric-shapes {
+    position: relative;
+    width: 350px;
+    height: 350px;
+}
+
+.about-shape {
+    position: absolute;
+    background: linear-gradient(135deg, var(--rich-gold), var(--warm-champagne));
+    opacity: 0.08;
+    border-radius: 20px;
+}
+
+.about-shape-1 {
+    width: 150px;
+    height: 150px;
+    top: 20%;
+    left: 20%;
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.about-shape-2 {
+    width: 100px;
+    height: 100px;
+    top: 10%;
+    right: 10%;
+    border-radius: 30px;
+    background: linear-gradient(45deg, var(--medium-bronze), var(--light-beige));
+    opacity: 0.1;
+    animation: float 8s ease-in-out infinite reverse;
+    transform: rotate(45deg);
+}
+
+.about-shape-3 {
+    width: 80px;
+    height: 80px;
+    bottom: 30%;
+    left: 10%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--warm-champagne), var(--rich-gold));
+    opacity: 0.12;
+    animation: float 4s ease-in-out infinite;
+}
+
+.about-shape-4 {
+    width: 40px;
+    height: 180px;
+    top: 20%;
+    right: 40%;
+    border-radius: 20px;
+    background: linear-gradient(180deg, var(--rich-gold), transparent);
+    opacity: 0.06;
+    animation: float 7s ease-in-out infinite;
+}
+
+.about-shape-5 {
+    width: 120px;
+    height: 2px;
+    bottom: 20%;
+    right: 20%;
+    border-radius: 1px;
+    background: linear-gradient(90deg, transparent, var(--warm-champagne), transparent);
+    opacity: 0.15;
+    animation: slideHorizontal 5s ease-in-out infinite;
+}
+
+.about-floating-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.about-dot {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--rich-gold);
+    border-radius: 50%;
+    opacity: 0.4;
+}
+
+.about-dot:nth-child(1) { top: 15%; left: 50%; animation: twinkle 3s ease-in-out infinite; }
+.about-dot:nth-child(2) { top: 60%; left: 70%; animation: twinkle 4s ease-in-out infinite 1s; }
+.about-dot:nth-child(3) { top: 80%; left: 30%; animation: twinkle 5s ease-in-out infinite 2s; }
+.about-dot:nth-child(4) { top: 40%; left: 80%; animation: twinkle 3.5s ease-in-out infinite 0.5s; }
 
 @keyframes fadeInUp {
     from {
@@ -1063,18 +1160,46 @@
 
 /* Enhanced Responsive Design */
 @media (max-width: 768px) {
+    .page-hero .container,
+    .about-hero .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .page-hero-content,
+    .about-hero-content {
+        text-align: center;
+    }
+    
     .page-hero h1,
     .about-hero h1 {
-        font-size: 3rem;
-        line-height: 1.1;
+        font-size: clamp(1.8rem, 8vw, 3rem);
+        line-height: 1.2;
+        margin-bottom: 1rem;
     }
     
     .page-hero-description,
     .page-hero p,
     .about-hero p {
-        font-size: 1.2rem;
-        margin-bottom: 30px;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
     }
+    
+    .page-hero-visual {
+        height: 300px;
+    }
+    
+    .about-geometric-shapes {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .about-shape-1 { width: 100px; height: 100px; }
+    .about-shape-2 { width: 70px; height: 70px; }
+    .about-shape-3 { width: 50px; height: 50px; }
+    .about-shape-4 { width: 35px; height: 120px; }
+    .about-shape-5 { width: 80px; }
     
     .story-content {
         grid-template-columns: 1fr;
@@ -1174,8 +1299,32 @@
     
     .page-hero h1,
     .about-hero h1 {
-        font-size: 2.5rem;
+        font-size: clamp(1.5rem, 10vw, 2.5rem);
+        line-height: 1.3;
+        margin-bottom: 1rem;
     }
+    
+    .page-hero-description,
+    .page-hero p,
+    .about-hero p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .page-hero-visual {
+        height: 250px;
+    }
+    
+    .about-geometric-shapes {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .about-shape-1 { width: 80px; height: 80px; }
+    .about-shape-2 { width: 55px; height: 55px; }
+    .about-shape-3 { width: 40px; height: 40px; }
+    .about-shape-4 { width: 25px; height: 100px; }
+    .about-shape-5 { width: 60px; }
     
     .section-header h2,
     .story-text h2 {

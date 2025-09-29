@@ -66,10 +66,9 @@
 
 /* Portfolio Hero Section */
 .portfolio-hero {
-    background: linear-gradient(135deg, var(--charcoal-navy) 0%, var(--deep-charcoal) 50%, var(--rich-gold) 100%);
-    padding: 100px 0 60px;
+    background: linear-gradient(135deg, #fafafa 0%, #f8f9fa 50%, #ffffff 100%);
+    padding: 140px 0 100px;
     text-align: center;
-    color: var(--white);
     position: relative;
     overflow: hidden;
     min-height: 70vh;
@@ -84,63 +83,178 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150"><defs><pattern id="portfolio-pattern" width="150" height="150" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="2" fill="%23D4AF37" opacity="0.08"/><circle cx="75" cy="75" r="3" fill="%23D4AF37" opacity="0.06"/><circle cx="125" cy="125" r="2" fill="%23D4AF37" opacity="0.08"/><polygon points="75,25 90,40 90,60 75,75 60,60 60,40" fill="none" stroke="%23D4AF37" stroke-width="0.5" opacity="0.04"/></pattern></defs><rect width="150" height="150" fill="url(%23portfolio-pattern)"/></svg>') repeat;
-    animation: float 25s infinite linear;
-}
-
-.portfolio-hero::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 70%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
-    animation: rotate 40s infinite linear;
+    background: 
+        radial-gradient(circle at 35% 65%, rgba(184, 134, 11, 0.04) 0%, transparent 60%),
+        radial-gradient(circle at 65% 35%, rgba(212, 175, 55, 0.03) 0%, transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(203, 174, 133, 0.02) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .portfolio-hero .container {
     position: relative;
     z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
 }
 
-
-
-.portfolio-hero .container {
-    position: relative;
-    z-index: 2;
+.portfolio-hero .page-hero-content {
+    flex: 1;
+    text-align: left;
 }
 
 .portfolio-hero .page-hero-content h1 {
-    font-size: 4rem;
-    font-weight: 800;
-    color: var(--white);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: var(--text-dark);
     margin-bottom: 2rem;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     letter-spacing: -0.02em;
     line-height: 1.1;
     animation: fadeInUp 1s ease-out;
 }
 
 .portfolio-hero .page-hero-content .highlight {
-    background: linear-gradient(135deg, var(--warm-champagne), var(--rich-gold));
+    background: linear-gradient(135deg, var(--rich-gold), var(--warm-champagne));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    position: relative;
+    display: inline-block;
+}
+
+.portfolio-hero .page-hero-content .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(135deg, var(--rich-gold), var(--warm-champagne));
+    border-radius: 2px;
+    animation: expandWidth 1.5s ease-out 0.5s both;
 }
 
 .portfolio-hero .page-hero-description {
-    font-size: 1.4rem;
-    color: var(--white);
-    opacity: 0.95;
-    max-width: 700px;
-    margin: 0 auto 3rem;
+    font-size: 1.3rem;
+    color: var(--text-medium);
+    max-width: 600px;
+    margin-bottom: 3rem;
     line-height: 1.7;
-    font-weight: 300;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    font-weight: 400;
     animation: fadeInUp 1s ease-out 0.2s both;
 }
+
+/* Portfolio Hero Visual Elements */
+.portfolio-hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    position: relative;
+}
+
+.portfolio-geometric-shapes {
+    position: relative;
+    width: 350px;
+    height: 350px;
+}
+
+.portfolio-shape {
+    position: absolute;
+    background: linear-gradient(135deg, var(--rich-gold), var(--warm-champagne));
+    opacity: 0.08;
+    border-radius: 20px;
+}
+
+.portfolio-shape-1 {
+    width: 140px;
+    height: 140px;
+    top: 10%;
+    left: 20%;
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.portfolio-shape-2 {
+    width: 90px;
+    height: 90px;
+    top: 25%;
+    right: 15%;
+    border-radius: 25px;
+    background: linear-gradient(45deg, var(--medium-bronze), var(--light-beige));
+    opacity: 0.1;
+    animation: float 8s ease-in-out infinite reverse;
+    transform: rotate(45deg);
+}
+
+.portfolio-shape-3 {
+    width: 70px;
+    height: 70px;
+    bottom: 30%;
+    left: 30%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--warm-champagne), var(--rich-gold));
+    opacity: 0.12;
+    animation: float 4s ease-in-out infinite;
+}
+
+.portfolio-shape-4 {
+    width: 50px;
+    height: 160px;
+    top: 35%;
+    right: 35%;
+    border-radius: 25px;
+    background: linear-gradient(180deg, var(--rich-gold), transparent);
+    opacity: 0.06;
+    animation: float 7s ease-in-out infinite;
+}
+
+.portfolio-shape-5 {
+    width: 120px;
+    height: 4px;
+    bottom: 20%;
+    right: 20%;
+    border-radius: 2px;
+    background: linear-gradient(90deg, transparent, var(--warm-champagne), transparent);
+    opacity: 0.15;
+    animation: slideHorizontal 5s ease-in-out infinite;
+}
+
+.portfolio-shape-6 {
+    width: 60px;
+    height: 60px;
+    top: 60%;
+    right: 5%;
+    border-radius: 30px;
+    background: linear-gradient(135deg, var(--rich-gold), var(--warm-champagne));
+    opacity: 0.08;
+    animation: float 9s ease-in-out infinite;
+    transform: rotate(30deg);
+}
+
+.portfolio-floating-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.portfolio-dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--rich-gold);
+    border-radius: 50%;
+    opacity: 0.4;
+}
+
+.portfolio-dot:nth-child(1) { top: 20%; left: 45%; animation: twinkle 3s ease-in-out infinite; }
+.portfolio-dot:nth-child(2) { top: 65%; left: 65%; animation: twinkle 4s ease-in-out infinite 1s; }
+.portfolio-dot:nth-child(3) { top: 45%; left: 75%; animation: twinkle 5s ease-in-out infinite 2s; }
+.portfolio-dot:nth-child(4) { top: 75%; left: 25%; animation: twinkle 3.5s ease-in-out infinite 0.5s; }
+.portfolio-dot:nth-child(5) { top: 15%; left: 65%; animation: twinkle 4.5s ease-in-out infinite 1.5s; }
 
 .portfolio-stats {
     display: flex;
@@ -931,6 +1045,21 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+    .portfolio-hero .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+    }
+    
+    .portfolio-hero-visual {
+        height: 350px;
+    }
+    
+    .portfolio-geometric-shapes {
+        width: 300px;
+        height: 300px;
+    }
+    
     .portfolio-grid.masonry {
         column-count: 2;
     }
@@ -980,13 +1109,42 @@
 }
 
 @media (max-width: 768px) {
-    .portfolio-hero h1 {
-        font-size: 2.5rem;
+    .portfolio-hero .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
     }
     
-    .portfolio-hero .lead {
-        font-size: 1.1rem;
+    .portfolio-hero .page-hero-content {
+        text-align: center;
     }
+    
+    .portfolio-hero .page-hero-content h1 {
+        font-size: clamp(1.8rem, 8vw, 3rem);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+    
+    .portfolio-hero .page-hero-description {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .portfolio-hero-visual {
+        height: 300px;
+    }
+    
+    .portfolio-geometric-shapes {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .portfolio-shape-1 { width: 100px; height: 100px; }
+    .portfolio-shape-2 { width: 70px; height: 70px; }
+    .portfolio-shape-3 { width: 50px; height: 50px; }
+    .portfolio-shape-4 { width: 35px; height: 120px; }
+    .portfolio-shape-5 { width: 80px; }
+    .portfolio-shape-6 { width: 45px; height: 45px; }
     
     .portfolio-stats {
         gap: 40px;
@@ -1056,9 +1214,32 @@
         padding: 100px 0 60px;
     }
     
-    .portfolio-hero h1 {
-        font-size: 2rem;
+    .portfolio-hero .page-hero-content h1 {
+        font-size: clamp(1.5rem, 10vw, 2.5rem);
+        line-height: 1.3;
+        margin-bottom: 1rem;
     }
+    
+    .portfolio-hero .page-hero-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .portfolio-hero-visual {
+        height: 250px;
+    }
+    
+    .portfolio-geometric-shapes {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .portfolio-shape-1 { width: 80px; height: 80px; }
+    .portfolio-shape-2 { width: 55px; height: 55px; }
+    .portfolio-shape-3 { width: 40px; height: 40px; }
+    .portfolio-shape-4 { width: 25px; height: 100px; }
+    .portfolio-shape-5 { width: 60px; }
+    .portfolio-shape-6 { width: 35px; height: 35px; }
     
     .portfolio-filter,
     .portfolio-section,
