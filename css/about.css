@@ -1291,6 +1291,9 @@
         flex-direction: column;
         text-align: center;
         gap: 2rem;
+        padding: 0 1rem;
+        max-width: 100%;
+        margin: 0 auto;
     }
     
     .page-hero-content,
@@ -1298,6 +1301,11 @@
         text-align: center;
         max-width: 100%;
         padding: 0 1rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
     
     .page-hero h1,
@@ -1305,6 +1313,8 @@
         font-size: clamp(2rem, 7vw, 3.2rem);
         line-height: 1.2;
         margin-bottom: 1.2rem;
+        text-align: center;
+        width: 100%;
     }
     
     .page-hero-description,
@@ -1313,10 +1323,18 @@
         font-size: 1.15rem;
         margin-bottom: 2rem;
         line-height: 1.6;
+        text-align: center;
+        max-width: 100%;
+        width: 100%;
+        padding: 0 0.5rem;
     }
     
     .page-hero-visual {
         height: 300px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
     .about-geometric-shapes {
