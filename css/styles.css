@@ -148,7 +148,7 @@ p {
 
 .btn-secondary {
     background: transparent;
-    color: var(--deep-charcoal);
+    color: white;
     border: 2px solid var(--medium-bronze);
 }
 
