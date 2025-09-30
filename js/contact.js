@@ -55,291 +55,277 @@ function highlightCurrentPage() {
         }
     });
 }
+// contact-form-fix.js
+(function () {
+  document.addEventListener('DOMContentLoaded', initializeContactForm);
 
-// Contact form functionality
-function initializeContactForm() {
+  function initializeContactForm() {
     const form = document.querySelector('.contact-form');
     if (!form) return;
-    
-    const submitButton = form.querySelector('.btn-submit');
-    const successMessage = document.querySelector('.success-message');
-    
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        if (validateForm()) {
-            submitForm(this, submitButton, successMessage);
-        }
+
+    // Use a robust selector for the submit button
+    const submitButton = form.querySelector('button[type="submit"]');
+    const successMessage = document.querySelector('#success-message') || document.querySelector('.success-message');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (validateForm(form)) {
+        submitForm(form, submitButton, successMessage);
+      }
     });
-    
+
     // Real-time validation
     const inputs = form.querySelectorAll('input, select, textarea');
     inputs.forEach(input => {
-        input.addEventListener('blur', function() {
-            validateField(this);
-        });
-        
-        input.addEventListener('input', function() {
-            if (this.classList.contains('error')) {
-                validateField(this);
-            }
-        });
+      input.addEventListener('blur', () => validateField(input));
+      // don't call undefined debounce — use the implemented one below
+      input.addEventListener('input', debounce(() => {
+        if (input.classList.contains('error')) validateField(input);
+      }, 250));
     });
-    
-    // Dynamic form sections
-    initializeDynamicFormSections();
-    
-    // Auto-save form data
-    initializeFormAutoSave();
-}
 
-// Form validation
-function validateForm() {
-    const form = document.querySelector('.contact-form');
+    initializeDynamicFormSections(form);
+    initializeFormAutoSave(form);
+  }
+
+  // simple debounce utility
+  function debounce(fn, wait = 300) {
+    let t;
+    return function (...args) {
+      const ctx = this;
+      clearTimeout(t);
+      t = setTimeout(() => fn.apply(ctx, args), wait);
+    };
+  }
+
+  // Form-level validation
+  function validateForm(form) {
     const requiredFields = form.querySelectorAll('[required]');
     let isValid = true;
-    
     requiredFields.forEach(field => {
-        if (!validateField(field)) {
-            isValid = false;
-        }
+      if (!validateField(field)) isValid = false;
     });
-    
-    // Custom validations
+
     const email = form.querySelector('input[type="email"]');
-    if (email && !isValidEmail(email.value)) {
-        showFieldError(email, 'Please enter a valid email address');
-        isValid = false;
+    if (email && email.value && !isValidEmail(email.value)) {
+      showFieldError(email, 'Please enter a valid email address');
+      isValid = false;
     }
-    
+
     const phone = form.querySelector('input[type="tel"]');
     if (phone && phone.value && !isValidPhone(phone.value)) {
-        showFieldError(phone, 'Please enter a valid phone number');
-        isValid = false;
+      showFieldError(phone, 'Please enter a valid phone number');
+      isValid = false;
     }
-    
+
     return isValid;
-}
+  }
 
-// Validate individual field
-function validateField(field) {
-    const value = field.value.trim();
-    const fieldGroup = field.closest('.form-group');
-    
-    // Clear previous errors
-    fieldGroup.classList.remove('error');
-    
-    // Required field validation
+  function validateField(field) {
+    if (!field) return true;
+    const value = String(field.value || '').trim();
+    const fieldGroup = field.closest('.form-group') || field.parentElement;
+
+    // clear previous error
+    if (fieldGroup) {
+      fieldGroup.classList.remove('error');
+      const prev = fieldGroup.querySelector('.error-message');
+      if (prev) prev.remove();
+    }
+
     if (field.hasAttribute('required') && !value) {
-        showFieldError(field, 'This field is required');
-        return false;
+      showFieldError(field, 'This field is required');
+      return false;
     }
-    
-    // Email validation
-    if (field.type === 'email' && value && !isValidEmail(value)) {
-        showFieldError(field, 'Please enter a valid email address');
-        return false;
-    }
-    
-    // Phone validation
-    if (field.type === 'tel' && value && !isValidPhone(value)) {
-        showFieldError(field, 'Please enter a valid phone number');
-        return false;
-    }
-    
-    // Minimum length validation
-    if (field.hasAttribute('minlength')) {
-        const minLength = parseInt(field.getAttribute('minlength'));
-        if (value.length < minLength) {
-            showFieldError(field, `Minimum ${minLength} characters required`);
-            return false;
-        }
-    }
-    
-    return true;
-}
 
-// Show field error
-function showFieldError(field, message) {
-    const fieldGroup = field.closest('.form-group');
+    if (field.type === 'email' && value && !isValidEmail(value)) {
+      showFieldError(field, 'Please enter a valid email address');
+      return false;
+    }
+
+    if (field.type === 'tel' && value && !isValidPhone(value)) {
+      showFieldError(field, 'Please enter a valid phone number');
+      return false;
+    }
+
+    if (field.hasAttribute('minlength')) {
+      const minLength = parseInt(field.getAttribute('minlength'), 10);
+      if (value.length < minLength) {
+        showFieldError(field, `Minimum ${minLength} characters required`);
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  function showFieldError(field, message) {
+    const fieldGroup = field.closest('.form-group') || field.parentElement;
+    if (!fieldGroup) return;
     fieldGroup.classList.add('error');
-    
+
     let errorElement = fieldGroup.querySelector('.error-message');
     if (!errorElement) {
-        errorElement = document.createElement('div');
-        errorElement.className = 'error-message';
-        fieldGroup.appendChild(errorElement);
+      errorElement = document.createElement('div');
+      errorElement.className = 'error-message';
+      fieldGroup.appendChild(errorElement);
     }
-    
     errorElement.textContent = message;
-}
+  }
 
-// Email validation
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
 
-// Phone validation
-function isValidPhone(phone) {
-    const phoneRegex = /^[\+]?[1-9][\d\s\-\(\)]{7,}$/;
-    return phoneRegex.test(phone.replace(/\s/g, ''));
-}
+  function isValidPhone(phone) {
+    const cleaned = phone.replace(/\s/g, '');
+    return /^[\+]?[1-9][\d\-\(\)]{7,}$/.test(cleaned);
+  }
 
-// Submit form
-function submitForm(form, submitButton, successMessage) {
-    // Show loading state
-    submitButton.classList.add('loading');
-    submitButton.disabled = true;
-    const originalText = submitButton.textContent;
-    submitButton.textContent = 'Sending...';
-    
-    // Collect form data
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-    
-    // Simulate API call (replace with actual endpoint)
-    setTimeout(() => {
-        // Reset button state
-        submitButton.classList.remove('loading');
-        submitButton.disabled = false;
-        submitButton.textContent = originalText;
-        
-        // Show success message
-        if (successMessage) {
-            successMessage.classList.add('show');
-            successMessage.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.';
-        }
-        
-        // Reset form
-        form.reset();
-        
-        // Clear saved form data
-        clearFormAutoSave();
-        
-        // Track form submission
-        trackContactFormSubmission(data);
-        
-        // Scroll to success message
-        if (successMessage) {
-            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-        
-        // Hide success message after 10 seconds
-        setTimeout(() => {
-            if (successMessage) {
-                successMessage.classList.remove('show');
-            }
-        }, 10000);
-        
-    }, 2000); // Simulate network delay
-}
-
-// Dynamic form sections
-function initializeDynamicFormSections() {
-    const serviceSelect = document.querySelector('select[name="service"]');
-    const projectDetails = document.querySelector('.project-details');
-    
-    if (serviceSelect && projectDetails) {
-        serviceSelect.addEventListener('change', function() {
-            if (this.value && this.value !== '') {
-                projectDetails.style.display = 'block';
-                projectDetails.classList.add('fade-in', 'animate');
-            } else {
-                projectDetails.style.display = 'none';
-                projectDetails.classList.remove('animate');
-            }
-        });
+  // Toggle spinner + text without clobbering markup
+  function setButtonLoading(btn, loading) {
+    if (!btn) return;
+    const loadingSpan = btn.querySelector('.btn-loading');
+    const textSpan = btn.querySelector('.btn-text');
+    if (loading) {
+      btn.classList.add('loading');
+      btn.disabled = true;
+      if (loadingSpan) loadingSpan.style.display = 'inline-block';
+      if (textSpan) textSpan.style.display = 'none';
+    } else {
+      btn.classList.remove('loading');
+      btn.disabled = false;
+      if (loadingSpan) loadingSpan.style.display = 'none';
+      if (textSpan) textSpan.style.display = 'inline';
     }
-    
-    // Budget range interaction
-    const budgetOptions = document.querySelectorAll('input[name="budget"]');
-    budgetOptions.forEach(option => {
-        option.addEventListener('change', function() {
-            // Add visual feedback
-            const label = this.nextElementSibling;
-            if (label) {
-                label.style.transform = 'scale(1.05)';
-                setTimeout(() => {
-                    label.style.transform = '';
-                }, 200);
-            }
-        });
-    });
-    
-    // Timeline options interaction
-    const timelineOptions = document.querySelectorAll('input[name="timeline"]');
-    timelineOptions.forEach(option => {
-        option.addEventListener('change', function() {
-            // Add visual feedback
-            const label = this.nextElementSibling;
-            if (label) {
-                label.style.transform = 'scale(1.05)';
-                setTimeout(() => {
-                    label.style.transform = '';
-                }, 200);
-            }
-        });
-    });
-}
+  }
 
-// Form auto-save functionality
-function initializeFormAutoSave() {
-    const form = document.querySelector('.contact-form');
-    if (!form) return;
-    
-    const inputs = form.querySelectorAll('input, select, textarea');
-    
-    // Load saved data
-    loadFormAutoSave();
-    
-    // Save data on input
-    inputs.forEach(input => {
-        input.addEventListener('input', debounce(saveFormAutoSave, 1000));
-    });
-}
-
-// Save form data to localStorage
-function saveFormAutoSave() {
-    const form = document.querySelector('.contact-form');
-    if (!form) return;
-    
+  async function submitForm(form, submitButton, successMessage) {
+    setButtonLoading(submitButton, true);
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-    
-    localStorage.setItem('contactFormAutoSave', JSON.stringify(data));
-}
 
-// Load form data from localStorage
-function loadFormAutoSave() {
-    const savedData = localStorage.getItem('contactFormAutoSave');
-    if (!savedData) return;
-    
     try {
-        const data = JSON.parse(savedData);
-        const form = document.querySelector('.contact-form');
-        
-        Object.keys(data).forEach(key => {
-            const field = form.querySelector(`[name="${key}"]`);
-            if (field) {
-                if (field.type === 'radio' || field.type === 'checkbox') {
-                    if (field.value === data[key]) {
-                        field.checked = true;
-                    }
-                } else {
-                    field.value = data[key];
-                }
-            }
-        });
-    } catch (e) {
-        console.error('Error loading auto-saved form data:', e);
-    }
-}
+      const res = await fetch(form.action, {
+        method: form.method || 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' },
+      });
 
-// Clear auto-saved form data
-function clearFormAutoSave() {
+      setButtonLoading(submitButton, false);
+
+      if (!res.ok) {
+        const errJson = await res.json().catch(() => ({}));
+        throw new Error(errJson.error || 'Form submission failed');
+      }
+
+      if (successMessage) {
+        successMessage.classList.add('show');
+        successMessage.style.backgroundColor = '';
+        successMessage.style.color = '';
+        successMessage.textContent = "Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.";
+      }
+
+      form.reset();
+      clearFormAutoSave();
+
+      // safe call: only call tracking if defined
+      const data = Object.fromEntries(formData.entries());
+      if (typeof window.trackContactFormSubmission === 'function') {
+        window.trackContactFormSubmission(data);
+      }
+
+      if (successMessage) successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => { if (successMessage) successMessage.classList.remove('show'); }, 10000);
+
+    } catch (err) {
+      setButtonLoading(submitButton, false);
+      if (successMessage) {
+        successMessage.classList.add('show');
+        successMessage.textContent = 'Sorry, there was an error sending your message. Please try again or contact us directly.';
+        successMessage.style.backgroundColor = '#ff4444';
+        successMessage.style.color = '#fff';
+      }
+      console.error('Form submission error:', err);
+    }
+  }
+
+  // Adapt dynamic UI to your HTML (select based)
+  function initializeDynamicFormSections(form) {
+    const serviceSelect = form.querySelector('select[name="projectType"]') || form.querySelector('select[name="service"]');
+    const projectDetails = document.querySelector('.project-details');
+
+    if (serviceSelect && projectDetails) {
+      serviceSelect.addEventListener('change', function () {
+        if (this.value && this.value !== '') {
+          projectDetails.style.display = 'block';
+          projectDetails.classList.add('fade-in', 'animate');
+        } else {
+          projectDetails.style.display = 'none';
+          projectDetails.classList.remove('animate');
+        }
+      });
+    }
+
+    const budgetSelect = form.querySelector('select[name="budget"]');
+    if (budgetSelect) {
+      budgetSelect.addEventListener('change', function () {
+        budgetSelect.classList.add('changed');
+        setTimeout(() => budgetSelect.classList.remove('changed'), 200);
+      });
+    }
+
+    const timelineSelect = form.querySelector('select[name="timeline"]');
+    if (timelineSelect) {
+      timelineSelect.addEventListener('change', function () {
+        timelineSelect.classList.add('changed');
+        setTimeout(() => timelineSelect.classList.remove('changed'), 200);
+      });
+    }
+  }
+
+  // Auto-save helpers
+  function initializeFormAutoSave(form) {
+    const inputs = form.querySelectorAll('input, select, textarea');
+    loadFormAutoSave(form);
+    inputs.forEach(input => {
+      input.addEventListener('input', debounce(saveFormAutoSave, 1000));
+    });
+  }
+
+  function saveFormAutoSave() {
+    const form = document.querySelector('.contact-form');
+    if (!form) return;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    localStorage.setItem('contactFormAutoSave', JSON.stringify(data));
+  }
+
+  function loadFormAutoSave() {
+    const saved = localStorage.getItem('contactFormAutoSave');
+    if (!saved) return;
+    try {
+      const data = JSON.parse(saved);
+      const form = document.querySelector('.contact-form');
+      if (!form) return;
+      Object.keys(data).forEach(key => {
+        const field = form.querySelector(`[name="${key}"]`);
+        if (!field) return;
+        if (field.type === 'radio' || field.type === 'checkbox') {
+          if (field.value === data[key]) field.checked = true;
+        } else {
+          field.value = data[key];
+        }
+      });
+    } catch (e) {
+      console.error('Error loading auto-saved form data:', e);
+    }
+  }
+
+  function clearFormAutoSave() {
     localStorage.removeItem('contactFormAutoSave');
-}
+  }
+
+})();
 
 // FAQ functionality
 function initializeFAQ() {

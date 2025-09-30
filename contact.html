@@ -89,7 +89,7 @@
                         <h2>Start Your Project</h2>
                         <p>Tell us about your project and we'll get back to you within 24 hours.</p>
                     </div>
-                    <form class="contact-form" id="contact-form">
+                    <form class="contact-form" id="contact-form" action="https://formspree.io/f/xzzrwyka" method="POST">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstName">First Name *</label>
@@ -159,6 +159,9 @@
                             <span class="btn-loading" style="display: none;">Sending...</span>
                         </button>
                     </form>
+                    
+                    <!-- Success/Error Message -->
+                    <div class="success-message" id="success-message"></div>
                 </div>
 
                 <!-- Contact Information -->
@@ -365,9 +368,8 @@
                     <div class="footer-column">
                         <h4>Connect</h4>
                         <ul>
-                            <li><a href="#">LinkedIn</a></li>
-                            <li><a href="#">Twitter</a></li>
-                            <li><a href="#">Instagram</a></li>
+                            <li><a href="https://wa.me/2349076948522?text=Hello%20Moyocode!%20I'm%20interested%20in%20a%20website%20project.">WhatsApp</a></li>
+                           
                         </ul>
                     </div>
                 </div>
@@ -394,8 +396,7 @@
             
             // Simulate form submission (replace with actual form handling)
             setTimeout(() => {
-                alert('Thank you for your message! We\'ll get back to you within 24 hours.');
-                this.reset();
+               
                 
                 // Reset button state
                 btnText.style.display = 'inline';

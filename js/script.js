@@ -262,7 +262,7 @@ function initializeCounters() {
         counterObserver.observe(counter);
     });
 }
-
+const form = document.querySelector('.quick-contact-form');
 // Form validation and enhancement
 function initializeFormValidation() {
     const forms = document.querySelectorAll('form');
